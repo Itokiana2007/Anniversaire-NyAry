@@ -1,0 +1,129 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(180deg, #0f0f0f, #555555);
+    background-size: 100% 200%;
+    animation: bgMove 7s ease-in-out infinite;
+  }
+  @keyframes bgMove {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; }
+  }
+
+
+header{
+    font-family: "Cormorant Garamond" , serif;
+    font-size: 2.5rem;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    
+    /* background-image: url('/video_images/elle/SZUU6444.JPG'); 
+    background-size: cover; /
+    background-position: center center;
+    background-repeat: no-repeat; /
+    filter: brightness(0.8); / */
+
+}
+.texte {
+    font-family: "Cormorant Garamond" , serif ; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+/* Style commun aux mots */
+.mot {
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s forwards;
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+
+    width: 100vw;
+    height: auto;
+    max-height: 100vh;
+    background-color: black;
+    transform: translate(-50%, -50%) rotate(90deg);
+    object-fit: contain;
+    /* filter: blur(6px) brightness(0.8); */
+    z-index: -1;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Empile texte et bouton */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    text-align: center;
+    color: white;
+    z-index: 10;
+  }
+button {
+    padding: 16px 24px;
+    font-size: 1.5rem;
+    background-color: #31292c;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   
+  }
+
+  .bouton-container button {
+    opacity: 0; /* État de départ */
+    transform: translateY(20px);
+  
+    animation: apparition 0.8s ease-out 2.7s forwards;
+    /* apparition = nom de l’animation
+       0.8s = durée
+       ease-out = vitesse
+       2s = délai avant de commencer
+       forwards = conserve l’état final */
+  }
+  
+  @keyframes apparition {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+.bouton-container button:hover {
+    background: #ffffff;
+}

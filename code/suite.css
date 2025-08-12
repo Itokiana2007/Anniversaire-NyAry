@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Images */
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Page */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Dégradé animé sombre bleuté */
+    background: linear-gradient(-45deg, #020024, #090979, #00D4FF);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+section {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Swiper container */
+.swiper {
+    margin: 50px auto;
+    padding-bottom: 60px;
+    user-select: none;
+}
+
+/* Slides responsive */
+.swiper-slide {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 30px;
+    overflow: hidden;
+    pointer-events: none;
+    will-change: transform;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Inactives : sombre + flou */
+.swiper-slide:not(.swiper-slide-active) img {
+    filter: brightness(60%) blur(2px);
+    transition: filter 0.3s ease;
+}
+
+/* Actives : nettes et claires */
+.swiper-slide-active img {
+    filter: none;
+    transition: filter 0.3s ease;
+}
+
+/* Card flip */
+.swiper-slide .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.flipped .card {
+    transform: rotateY(180deg);
+}
+
+.swiper-slide .front,
+.swiper-slide .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 30px;
+}
+
+.swiper-slide .back {
+    transform: rotateY(180deg);
+}
+
+/* Retire totalement les petits points */
+.swiper-slide .front::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: none;
+}
+
+/* Arrière flouté */
+.swiper-slide .back::before {
+    content: "";
+    position: absolute;
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.2); 
+    border-radius: inherit;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    mix-blend-mode: darken;
+}
+
+.swiper-slide-active .back {
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
+.swiper-slide-active .back p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Bouton */
+.swiper-slide button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 7px 30px 0 rgba(100, 100, 111, 0.2);
+    background: rgba(225, 225, 225, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    font-size: 2rem;
+    color: #FFF;
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    text-align: center;
+    width: 40%;
+    outline: 0;
+    border: 1px solid rgba(225, 225, 225, 0.4); 
+    border-radius: 30px;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.swiper-slide-active button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.swiper-slide button:hover {
+    transform: translateX(-50%) scale(0.98);
+}
+
+/* Pagination */
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #7e7e7e;
+    border-radius: 50%;
+    transition: all 0.6s ease-in-out;
+}
+
+.swiper-pagination-bullet-active {
+    width: 25px;
+    background-color: #717271;
+    border-radius: 14px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .swiper-slide {
+        aspect-ratio: 4 / 5;
+    }
+}

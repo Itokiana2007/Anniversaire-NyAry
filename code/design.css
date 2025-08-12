@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(/video_images/elle/IMG_0320.jpg);
+    /* background-position: center center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    height: 100vh;
+    margin: 0;
+
+}
+h1{
+    font-family: "Dancing Script", cursive;
+    font-size: 2.2rem;
+    padding: 10px;
+
+}
+.titre{
+    
+    opacity: 0; /* invisible au départ */
+    transition: opacity 1s ease;
+}
+p{
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    font-weight: 15px;
+}
+
+.texte-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    
+    
+    width: 90vw;          /* largeur 90% de la largeur de l'écran */
+    max-width: 400px;     /* max largeur raisonnable pour grands écrans */
+    padding: 20px 30px;   /* espace interne */
+    /* max-width: 80vw;
+    padding: 30px 40px; */
+    
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255 255 255 / 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    color: black;
+    text-align: center;
+    word-wrap: break-word;
+
+
+    
+    opacity: 0; /* invisible au départ */
+    transition: opacity 1s ease;
+
+  }
+
+  .texte{
+    opacity: 0; /* invisible au départ */
+    transition: opacity 1s ease;
+  }
+  
+  .texte p {
+    display: inline-block;
+    margin: 0 4px;
+    transform: translateY(10px);
+
+  }
+.suite {
+  position: fixed;
+  bottom: -20px ;/*ace depuis le bas */
+  right: 20px;  /* espace depuis la droite */
+  padding: 10px 20px;
+  opacity: 0;
+  transition: opacity 1s ease ;
+}
+.suite button {
+  font-family:"Dancing Script", cursive ; 
+  border-radius: 8px ; 
+  padding: 15px 40px ; 
+  font-size: 25px ; 
+  background: rgba(112, 96, 96, 0.3);
+  backdrop-filter: blur(10px);
+}
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
